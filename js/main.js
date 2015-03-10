@@ -22,9 +22,9 @@ jQuery( document ).ready(function( $ ) {
         return num;
     };
 
-    var validateZip = function(num) {
-        return (/^\d{5}(-\d{4})?$/).test(sZip);
-    }
+    var validateZip = function(zip) {
+        return (/^\d{5}(-\d{4})?$/).test(zip);
+    };
 
     var validateEmail = function(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -50,20 +50,20 @@ jQuery( document ).ready(function( $ ) {
             return fieldError('email','Please enter a valid email address');
         }
 
-        var phone = $('#id_phone').val();
-        if (!validatePhone(phone)) {
-            return fieldError('phone','Please enter a valid US phone number');
-        }
-
         var zipcode = $('#id_zip').val();
         if (!validateZip(zipcode)) {
             return fieldError('zip','Please enter a valid US zip code');
         }
 
+        var phone = $('#id_phone').val();
+        if (!validatePhone(phone)) {
+            return fieldError('phone','Please enter a valid US phone number');
+        }        
+
         var data = {
             campaignId: 'end-police-violence',
             userPhone: validatePhone(phone),
-            zipcode: validateZipcode(zipcode)
+            zipcode: validateZip(zipcode)
         };
 
         $.ajax({
