@@ -52,6 +52,9 @@
     color: gray;
     font-size: 1em;
 }
+.overlay .modal .inner p.left {
+    text-align: left;
+}
 
 .overlay .modal .bottom {
     -webkit-border-bottom-right-radius: 10px;
