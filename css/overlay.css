@@ -55,6 +55,9 @@
 .overlay .modal .inner p.left {
     text-align: left;
 }
+.overlay .modal .inner ul {
+    font-size: 14px;
+}
 
 .overlay .modal .bottom {
     -webkit-border-bottom-right-radius: 10px;
