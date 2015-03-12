@@ -87,6 +87,8 @@ jQuery( document ).ready(function( $ ) {
             }
         });
         showOverlay();
+        $('#phoneForm').hide();
+        $('#phoneForm-replacement').show();
         return true;
     };
     $('#phoneForm').submit(onWidgetSubmit);
