@@ -23,12 +23,21 @@ jQuery( document ).ready(function( $ ) {
     };
 
     var validateZip = function(zip) {
-        return (/^\d{5}(-\d{4})?$/).test(zip);
+        re = /^\d{5}(-\d{4})?$/;
+        if (re.test(zip)) {
+            return zip;
+        } else {
+            return false;
+        }
     };
 
     var validateEmail = function(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
+        if (re.test(email)) {
+            return email;
+        } else {
+            return false;
+        }
     };
 
     var trackEvent = function(ev) {
@@ -58,7 +67,7 @@ jQuery( document ).ready(function( $ ) {
         var phone = $('#id_phone').val();
         if (!validatePhone(phone)) {
             return fieldError('phone','Please enter a valid US phone number');
-        }        
+        }
 
         var data = {
             campaignId: 'end-police-violence',
@@ -74,7 +83,7 @@ jQuery( document ).ready(function( $ ) {
             success: function(res) {
                 trackEvent('call-congress');
 
-                console.log('Placed call-congress call: ', res);
+                console.log('Placed call-congress call: ', data, res);
             }
         });
         showOverlay();
