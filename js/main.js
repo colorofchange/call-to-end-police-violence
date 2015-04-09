@@ -70,7 +70,7 @@ jQuery( document ).ready(function( $ ) {
         }
 
         var data = {
-            campaignId: 'end-police-violence',
+            campaignId: 'end-police-violence-wh',
             userPhone: validatePhone(phone),
             zipcode: validateZip(zipcode)
         };
